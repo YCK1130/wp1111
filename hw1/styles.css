@@ -217,51 +217,310 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    user-select: none;
+
 }
 .tool-container#right{
     justify-content:flex-end;
 }
 .tool {
-    background-color:rgb(61,64,67);
-    font: 20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin-left:5px;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
     display:flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    
 }
 .tool-phone {
-    background-color:rgb(61,64,67);
-    font: 20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-    width: 70px;
-    height: 46px;
-    border-radius: 23px;
     margin-left:5px;
     display:flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-
-.tool:hover{
-    background-color:rgb(97, 99, 102);
-    cursor:pointer;
-}
-.tool-phone:hover{
-    background-color:rgb(97, 99, 102);
-    cursor:pointer;
 }
 
 .tool-checkbox {
-    /* display: none; */
-    cursor:pointer;
+     display: none;
 }
 
-.tool-checkboxinput[type="checkbox"]:checked ~ .tool {
-    background-color:red;
+#keyboard_voice ~ .tool {
+    background-color:rgb(61,64,67);
+    content: url("./img_white/keyboard_voice_white_24dp.svg");
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+#keyboard_voice ~ .tool:hover{
+    background-color:rgb(97, 99, 102);
+    cursor:pointer;
+}
+#keyboard_voice:checked ~ .tool:hover{
+    background-color:rgb(199,87, 67);
+    cursor:pointer;
+}
+#keyboard_voice:checked ~ .tool {
+    background-color:rgb(212, 68, 42);
+    content: url("./img_white/mic_off_white_24dp.svg"); 
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+
+
+#videocam ~ .tool {
+    background-color:rgb(61,64,67);
+    content: url("./img_white/videocam_white_18dp.svg");
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+#videocam ~ .tool:hover{
+    background-color:rgb(97, 99, 102);
+    cursor:pointer;
+}
+#videocam:checked ~ .tool:hover{
+    background-color:rgb(199,87, 67);
+    cursor:pointer;
+}
+#videocam:checked ~ .tool {
+    background-color:rgb(212, 68, 42);
+    content: url("./img_white/videocam_off_white_18dp.svg"); 
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+
+#hand_up ~ .tool {
+    background-color:rgb(61,64,67);
+    content: url("./img_white/back_hand_white_24dp.svg");
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+#hand_up ~ .tool:hover{
+    background-color:rgb(97, 99, 102);
+    cursor:pointer;
+}
+#hand_up:checked ~ .tool:hover{
+    background-color:rgb(151, 176, 217);
+    cursor:pointer;
+}
+#hand_up:checked ~ .tool {
+    background-color:rgb(132,172,236);
+    content: url("./img_white/back_hand_white_24dp.svg"); 
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+
+
+#present2all ~ .tool {
+    background-color:rgb(61,64,67);
+    content: url("./img_white/present_to_all_white_18dp.svg");
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+#present2all ~ .tool:hover{
+    background-color:rgb(97, 99, 102);
+    cursor:pointer;
+}
+#present2all:checked ~ .tool:hover{
+    background-color:rgb(97, 99, 102);
+    cursor:pointer;
+}
+#present2all:checked ~ .tool {
+    background-color:rgb(61,64,67);
+    content: url("./img_white/present_to_all_white_18dp.svg"); 
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+
+
+#more_icon ~ .tool {
+    background-color:rgb(61,64,67);
+    content: url("./img_white/more_vert_white_18dp.svg");
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+#more_icon ~ .tool:hover{
+    background-color:rgb(97, 99, 102);
+    cursor:pointer;
+}
+#more_icon:checked ~ .tool:hover{
+    background-color:rgb(97, 99, 102);
+    cursor:pointer;
+}
+#more_icon:checked ~ .tool {
+    background-color:rgb(61,64,67);
+    content: url("./img_white/more_vert_white_18dp.svg"); 
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+
+#phone_off ~ .tool {
+    background-color:rgb(212, 68, 42);
+    content: url("./img_white/call_end_white_18dp.svg");
+    width: 70px;
+    height: 46px;
+    border-radius: 23px;
+    /* margin-left:5px; */
+    padding: 10px;
+}
+#phone_off ~ .tool:hover{
+    background-color:rgb(199, 87, 67);
+    cursor:pointer;
+}
+#phone_off:checked ~ .tool:hover{
+    background-color:rgb(199, 87, 67);
+    cursor:pointer;
+}
+#phone_off:checked ~ .tool {
+    background-color:rgb(212, 68, 42);
+    content: url("./img_white/call_end_white_18dp.svg"); 
+    width: 70px;
+    height: 46px;
+    border-radius: 23px;
+    /* margin-left:5px; */
+    padding: 10px;
+}
+
+
+
+#info ~ .tool {
+    background-color:inherit;
+    content: url("./img_white/info_white_18dp.svg");
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+#info ~ .tool:hover{
+    background-color:rgba(61, 64, 64,0.6);
+    cursor:pointer;
+}
+#info:checked ~ .tool:hover{
+    background-color:rgba(61, 64, 64,0.6);
+    cursor:pointer;
+}
+#info:checked ~ .tool {
+    background-color:inherit;
+    content: url("./img_white/info_white_18dp.svg"); 
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+
+
+#people ~ .tool {
+    background-color:inherit;
+    content: url("./img_white/people_white_18dp.svg");
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+#people ~ .tool:hover{
+    background-color:rgba(61, 64, 64,0.6);
+    cursor:pointer;
+}
+#people:checked ~ .tool:hover{
+    background-color:rgba(61, 64, 64,0.6);
+    cursor:pointer;
+}
+#people:checked ~ .tool {
+    background-color:inherit;
+    content: url("./img_white/people_white_18dp.svg"); 
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+
+#chat ~ .tool {
+    background-color:inherit;
+    content: url("./img_white/chat_white_24dp.svg");
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+#chat ~ .tool:hover{
+    background-color:rgba(61, 64, 64,0.6);
+    cursor:pointer;
+}
+#chat:checked ~ .tool:hover{
+    background-color:rgba(61, 64, 64,0.6);
+    cursor:pointer;
+}
+#chat:checked ~ .tool {
+    background-color:inherit;
+    content: url("./img_white/chat_white_24dp.svg"); 
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+
+#collection ~ .tool {
+    background-color:inherit;
+    content: url("./img_white/category_white_24dp.svg");
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+#collection ~ .tool:hover{
+    background-color:rgba(61, 64, 64,0.6);
+    cursor:pointer;
+}
+#collection:checked ~ .tool:hover{
+    background-color:rgba(61, 64, 64,0.6);
+    cursor:pointer;
+}
+#collection:checked ~ .tool {
+    background-color:inherit;
+    content: url("./img_white/category_white_24dp.svg"); 
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+
+#control ~ .tool {
+    background-color:inherit;
+    content: url("./img_white/lock_white_18dp.svg");
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
+}
+#control ~ .tool:hover{
+    background-color:rgba(61, 64, 64,0.6);
+    cursor:pointer;
+}
+#control:checked ~ .tool:hover{
+    background-color:rgba(61, 64, 64,0.6);
+    cursor:pointer;
+}
+#control:checked ~ .tool {
+    background-color:inherit;
+    content: url("./img_white/lock_white_18dp.svg"); 
+    width:46px;
+    height:46px; 
+    border-radius: 50%;
+    padding: 10px;
 }
