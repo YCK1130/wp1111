@@ -102,6 +102,8 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    user-select: none;
 }
 
 /* anchored person */
@@ -142,6 +144,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    visibility: hidden;
 }
 #anchored-person .tool-box{
     width: 150px;
@@ -153,6 +156,93 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     /* visibility: hidden; */
+}
+
+
+#pin ~ .tool {
+    background-color:rgb(61,64,67);
+    content: url("./img_white/push_pin_white_24dp.svg");
+    width:40px;
+    height:40px; 
+    border-radius: 50%;
+    padding: 5px;
+}
+#pin:checked ~ .tool {
+    background-color:rgb(212, 68, 42);
+    content: url("./img_white/cancel_push_pin_white_24dp.svg"); 
+    width:40px;
+    height:40px; 
+    border-radius: 50%;
+    padding: 5px;
+}
+
+
+#dashboard ~ .tool {
+    background-color:rgb(61,64,67);
+    content: url("./img_white/dashboard_customize_white_24dp.svg");
+    width:40px;
+    height:40px; 
+    border-radius: 50%;
+    padding: 5px;
+}
+#dashboard:checked ~ .tool {
+    background-color:rgb(212, 68, 42);
+    content: url("./img_white/dashboard_customize_white_24dp.svg"); 
+    width:40px;
+    height:40px; 
+    border-radius: 50%;
+    padding: 5px;
+}
+
+
+#close-full-screen ~ .tool {
+    background-color:rgb(61,64,67);
+    content: url("./img_white/close_fullscreen_white_24dp.svg");
+    width:40px;
+    height:40px; 
+    border-radius: 50%;
+    padding: 5px;
+}
+#close-full-screen:checked ~ .tool {
+    background-color:rgb(212, 68, 42);
+    content: url("./img_white/close_fullscreen_white_24dp.svg"); 
+    width:40px;
+    height:40px; 
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.tool-box > div{
+    visibility: hidden;
+    user-select: none;
+}
+
+#anchored-person:hover .tool-box{
+    visibility:visible;
+    background-color:rgba(38, 34, 34, 0.517);
+}
+#anchored-person:hover .tool-box > div >*{
+    visibility:visible;
+    background-color:rgba(38, 34, 34, 0);
+}
+#anchored-person:hover .tool-box > div{
+    visibility:visible;
+    background-color:rgba(38, 34, 34, 0);
+}
+
+
+#anchored-person:hover .middle-box:hover .tool-box{
+    background-color:rgba(38, 34, 34, 0.733);
+}
+
+#anchored-person:hover .middle-box:hover #pin:hover ~ .tool{
+    background-color:rgba(38, 34, 34, 0.3);
+}
+#anchored-person:hover .middle-box:hover #dashboard:hover ~ .tool{
+    background-color:rgba(38, 34, 34, 0.3);
+}
+#anchored-person:hover .middle-box:hover #close-full-screen:hover ~ .tool{
+    background-color:rgba(38, 34, 34, 0.3);
 }
 
 .mute-sign {
@@ -195,6 +285,8 @@ body {
     padding: 0.75rem 10px;
     height: 1.65em;
     width: 100%;
+
+    user-select: none;
 }
 
 .footer{
@@ -203,7 +295,7 @@ body {
 }
 
 .meet-info {
-    padding-left: 8%;
+    padding-left: 5%;
     display:flex;
     flex-direction: row;
     align-items: center;
@@ -310,7 +402,7 @@ body {
     cursor:pointer;
 }
 #hand_up:checked ~ .tool {
-    background-color:rgb(132,172,236);
+    background-color:rgb(93, 144, 227);
     content: url("./img_white/back_hand_white_24dp.svg"); 
     width:46px;
     height:46px; 
@@ -523,4 +615,60 @@ body {
     height:46px; 
     border-radius: 50%;
     padding: 10px;
+}
+
+.tooltip{
+    font:10px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color:white;
+    height:2.5em;
+    padding:4px;
+
+    border-radius:5px;
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(61,64,67);
+    transform: translate(0, -12.5vh);
+    position: absolute;
+    z-index:1;
+    opacity: 0;
+}
+
+.tool:hover + .tooltip{
+    opacity: 1;
+    transition:all 0.5s ease-in;
+}
+
+@media (max-width: 890px) {
+    body {
+    font: 14px;
+    }
+    #control-block{
+        display: none;
+    }
+    #present-block{
+        display: none;
+    }
+}
+
+@media (max-width: 715px) {
+    .left-bottom {
+    font-size: 12px;
+    }
+    #hand-block{
+        display: none;
+    }
+    #collection-block{
+        display: none;
+    }
+}
+@media (max-width: 650px) {
+    #time-name > span{
+        display: none;
+    }
+    #time-name::after{
+        content: attr(data-abbr);
+    }
+
 }

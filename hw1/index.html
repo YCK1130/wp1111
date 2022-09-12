@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <title>fake Google meet|ylh-zsr-lqw</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        <link rel="icon" href="./img_white/google_meet.png" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="./styles.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
     <body>
         <div id="root">
@@ -16,14 +16,29 @@
                         <img src=".\img_white\mic_off_white_18dp.svg" >
                     </div> <!--右上靜音-->
                     <div class="middle-box">
-                        <div class="avatar">XX</div> <!--人像-->
+                        <div class="avatar">CK</div> <!--人像-->
                         <div class="tool-box">
-                            <div class="tool"></div>
-                            <div class="tool"></div>
-                            <div class="tool"></div>
+                            <div>
+                                <input type="checkbox" id="pin" class="tool-checkbox">
+                                <label class="tool" for="pin"></label>
+                                <div class="tooltip" style="transform: translate(-1.5vw, 1.5vh);background-color: rgb(61,64,67);">將自己釘選在主畫面上</div>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="dashboard" class="tool-checkbox">
+                                <label class="tool" for="dashboard"></label>
+                                <div class="tooltip" style="transform: translate(-0.5vw, 1.5vh);background-color: rgb(61,64,67);">變更版面配置</div>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="close-full-screen" class="tool-checkbox">
+                                <label class="tool" for="close-full-screen"></label>
+                                <div class="tooltip" style="transform: translate(0, 1.5vh);background-color: rgb(61,64,67);">最小化</div>
+                            </div>
                         </div> <!--中央工具表-->
                     </div>
-                    <div class="left-bottom">123454</div> <!--左下圖標-->
+                    <div class="left-bottom">
+                        <img src="./img_white/push_pin_white_24dp.svg" id="pin_icon">
+                        你
+                    </div> <!--左下圖標-->
                 </div>
                 <div class="thumbnail-container">
                     <div class="person-block" id="1">
@@ -31,100 +46,113 @@
                             <img src=".\img_white\mic_off_white_18dp.svg" >
                         </div> <!--右上靜音-->
                         <div class="middle-box">
-                            <div class="avatar">XX</div> <!--人像-->
+                            <div class="avatar" style="background-color:rgb(0, 89, 255)">Xn</div> <!--人像-->
                         </div>
-                        <div class="left-bottom">123454</div> <!--左下圖標-->
+                        <div class="left-bottom">Xn</div> <!--左下圖標-->
                     </div>
                     <div class="person-block" id="2">
                         <div class="mute-sign">
                             <img src=".\img_white\mic_off_white_18dp.svg" >
                         </div> <!--右上靜音-->
                         <div class="middle-box">
-                            <div class="avatar">XX</div> <!--人像-->
+                            <div class="avatar" style="background-color:rgb(114, 86, 141)">K8</div> <!--人像-->
                         </div>
-                        <div class="left-bottom">123454</div> <!--左下圖標-->
+                        <div class="left-bottom">CsKuo8</div> <!--左下圖標-->
                     </div>
                     <div class="person-block" id="3">
                         <div class="mute-sign">
                             <img src=".\img_white\mic_off_white_18dp.svg" >
                         </div> <!--右上靜音-->
                         <div class="middle-box">
-                            <div class="avatar">XX</div> <!--人像-->
+                            <div class="avatar" style="background-color:rgb(2, 136, 83)">紅玉</div> <!--人像-->
                         </div>
-                        <div class="left-bottom">123454</div> <!--左下圖標-->
+                        <div class="left-bottom">劉紅玉</div> <!--左下圖標-->
                     </div>
                     <div class="person-block" id="4">
                         <div class="mute-sign">
                             <img src=".\img_white\mic_off_white_18dp.svg" >
                         </div> <!--右上靜音-->
                         <div class="middle-box">
-                            <div class="avatar">XX</div> <!--人像-->
+                            <div class="avatar" style="background-color:rgb(181, 175, 5)">成景</div> <!--人像-->
                         </div>
-                        <div class="left-bottom">123454</div> <!--左下圖標-->
+                        <div class="left-bottom">聶成景</div> <!--左下圖標-->
                     </div>
                     <div class="person-block" id="last">
                         <div class="mute-sign">
                             <img src=".\img_white\mic_off_white_18dp.svg" >
                         </div> <!--右上靜音-->
                         <div class="middle-box">
-                            <div class="avatar">XX</div> <!--人像-->
-                            
-                            
+                            <div class="avatar" style="background-color:rgb(11, 161, 6)">圈圈</div> <!--人像-->
                         </div>
-                        <div class="left-bottom">123454</div> <!--左下圖標-->
+                        <div class="left-bottom" >田圈圈</div> <!--左下圖標-->
                     </div>
                 </div>
             </section>
             <footer class="footer">
-                <div class="meet-info">凌晨12:34 | ylh-zsr-lqw</div>
+                <div class="meet-info" >
+                    <div id="time-name" data-abbr="凌晨12:34 | ···">
+                        <span>凌晨12:34 | ylh-zsr-lqw</span>
+                    </div>
+                </div>
                 <div class="tool-container" id="middle"><!-- animaiton unsolve -->
-                    <div>
+                    <div id="mic-block">
                         <input type="checkbox" id="keyboard_voice" class="tool-checkbox">
-                        <label class="tool" for="keyboard_voice">
+                        <label class="tool" for="keyboard_voice"></label>
+                        <div class="tooltip" >開啟麥克風(Ctrl+D)</div>
                     </div>
-                    <div>
+                    <div id="videocam-block">
                         <input type="checkbox" id="videocam" class="tool-checkbox">
-                        <label class="tool" for="videocam">
+                        <label class="tool" for="videocam"></label>
+                        <div class="tooltip" >開啟攝影機(Ctrl+E)</div>
                     </div>
-                    <div>
+                    <div id="hand-block">
                         <input type="checkbox" id="hand_up" class="tool-checkbox">
-                        <label class="tool" for="hand_up">
+                        <label class="tool" for="hand_up"></label>
+                        <div class="tooltip" >舉手(Ctrl+Alt+h)</div>
                     </div>
-                    <div>
+                    <div id="present-block">
                         <input type="checkbox" id="present2all" class="tool-checkbox">
-                        <label class="tool" for="present2all">
+                        <label class="tool" for="present2all"></label>
+                        <div class="tooltip" >立即分享螢幕畫面</div>
                     </div>
-                    <div>
+                    <div id="more-block">
                         <input type="checkbox" id="more_icon" class="tool-checkbox">
-                        <label class="tool" for="more_icon">
+                        <label class="tool" for="more_icon"></label>
+                        <div class="tooltip" >更多選項</div>
                     </div>
-                    <div >
+                    <div id="phone-block">
                         <input type="checkbox" id="phone_off" class="tool-checkbox">
-                        <label class="tool" for="phone_off">
+                        <label class="tool" for="phone_off"></label>
+                        <div class="tooltip" style="transform: translate(1vw, -11vh);">退出通話</div>
                     </div>
                 </div>
                 <div class="tool-container" id="right">
-                    <div>
+                    <div id="info-block">
                         <input type="checkbox" id="info" class="tool-checkbox">
-                        <label class="tool" for="info">
+                        <label class="tool" for="info"></label>
+                        <div class="tooltip" >會議詳細資料</div>
                     </div>
-                    <div>
+                    <div id="people-block">
                         <input type="checkbox" id="people" class="tool-checkbox">
-                        <label class="tool" for="people">
+                        <label class="tool" for="people"></label>
+                        <div class="tooltip" >顯示所有參與人員</div>
                     </div>
-                    <div>
+                    <div id="chat-block">
                         <input type="checkbox" id="chat" class="tool-checkbox">
-                        <label class="tool" for="chat">
+                        <label class="tool" for="chat"></label>
+                        <div class="tooltip" style="transform: translate(-3.5vw, -12.5vh);">與所有參與者進行即時通訊</div>
                     </div>
-                    <div>
+                    <div id="collection-block">
                         <input type="checkbox" id="collection" class="tool-checkbox">
-                        <label class="tool" for="collection">
+                        <label class="tool" for="collection"></label>
+                        <div class="tooltip" style="transform: translate(1vw, -12.5vh);">活動</div>
                     </div>
-                    <div>
+                    <div id="control-block">
                         <input type="checkbox" id="control" class="tool-checkbox">
-                        <label class="tool" for="control">
+                        <label class="tool" for="control"></label>
+                        <div class="tooltip" >主辦控制項</div>
                     </div>
-                    <!-- unsolve -->
+                    <!-- animation unsolve, pop windows unsolve -->
                 </div>
             </footer>
         </div>
