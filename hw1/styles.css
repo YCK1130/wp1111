@@ -72,7 +72,7 @@ body {
 }
 
 .middle-box{
-    font: 20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
     width: 3em;
     height: 3em;
     padding: 0;
@@ -86,7 +86,7 @@ body {
 
 .avatar {
     background-color:red;
-    font: 24px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 24px;
 
     width: 100%;
     height: 100%;
@@ -115,13 +115,13 @@ body {
     background-color:inherit;
 }
 #anchored-person > .middle-box {
-    font: 50px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 50px;
     width: 160px;
     height: 160px;
     padding: 0;
 }
 #anchored-person .avatar {
-    font: 70px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 70px;
     width: 160px;
     height: 160px;
     padding: 0;
@@ -135,10 +135,10 @@ body {
     border-radius: 25px;
     margin:0;
 
-    position: relative;
+    /* position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
 
     display:flex;
     flex-direction: row;
@@ -231,17 +231,17 @@ body {
 }
 
 
-#anchored-person:hover .middle-box:hover .tool-box{
+#anchored-person:hover .tool-box:hover{
     background-color:rgba(38, 34, 34, 0.733);
 }
 
-#anchored-person:hover .middle-box:hover #pin:hover ~ .tool{
+#anchored-person:hover .tool-box:hover #pin:hover ~ .tool{
     background-color:rgba(38, 34, 34, 0.3);
 }
-#anchored-person:hover .middle-box:hover #dashboard:hover ~ .tool{
+#anchored-person:hover .tool-box:hover #dashboard:hover ~ .tool{
     background-color:rgba(38, 34, 34, 0.3);
 }
-#anchored-person:hover .middle-box:hover #close-full-screen:hover ~ .tool{
+#anchored-person:hover .tool-box:hover #close-full-screen:hover ~ .tool{
     background-color:rgba(38, 34, 34, 0.3);
 }
 
@@ -262,6 +262,8 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    user-select:none;
 }
 #anchored-person > .mute-sign{
     margin: 1%;
@@ -618,7 +620,7 @@ body {
 }
 
 .tooltip{
-    font:10px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size:10px;
     color:white;
     height:2.5em;
     padding:4px;
@@ -669,6 +671,12 @@ body {
     }
     #time-name::after{
         content: attr(data-abbr);
+    }
+    #chat-block {
+        display: none;
+    }
+    #people-block {
+        display: none;
     }
 
 }
