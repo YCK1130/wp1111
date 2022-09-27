@@ -7,8 +7,6 @@ html,
 body {
     font: 16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: rgb(32,33,36);
-    
-    /* overflow: auto; 自動產生scroll bar */
 }
 
 #root {
@@ -43,7 +41,8 @@ body {
     height: 100%;
 
 }
-.thumbnail-container{
+
+#thumbnail-container{
     /* border: 1px solid gray; */
     /* padding:5% 5%; */
     max-width: 30em;
@@ -67,10 +66,9 @@ body {
     display:grid;
     grid-template-rows: 33.3% 33.3% 33.3%;
 }
-.person-block#person5 {
-    width: 60%;
-    
-}
+/* .person-block#person5 {
+    width: 60%;  
+} */
 
 .middle-box{
     font-size: 20px;

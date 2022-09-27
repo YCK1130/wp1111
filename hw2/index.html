@@ -7,11 +7,11 @@
 
         <link rel="icon" href="./img_white/google_meet.png" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="./styles.css" />
+        
     </head>
     <body>
-        <script src="main.js"></script>
         <div id="root">
-            <section class="main">
+            <section class="main" id="main">
                 <div class="person-block" id="anchored-person">
                     <div class="mute-sign">
                         <img src=".\img_white\mic_off_white_18dp.svg" >
@@ -41,9 +41,9 @@
                         <div class="name">你</div>
                     </div> <!--左下圖標-->
                 </div>
-                <div class="thumbnail-container">
+                <div id="thumbnail-container">
                     <div class="person-block" id="person1">
-                        <button class="close-sign">
+                        <button class="close-sign" onclick = "delete_node(this.parentNode.id)">
                             <img src=".\img_white\close_white_24dp.svg" >
                         </button> <!--左上靜音-->
                         <div class="mute-sign">
@@ -70,118 +70,7 @@
                             <div class="name">Xn</div>
                         </div> <!--左下圖標-->
                     </div>
-                    <div class="person-block" id="person2">
-                        <button class="close-sign">
-                            <img src=".\img_white\close_white_24dp.svg" >
-                        </button> <!--左上靜音-->
-                        <div class="mute-sign">
-                            <img src=".\img_white\mic_off_white_18dp.svg" >
-                        </div> <!--右上靜音-->
-                        <div class="middle-box">
-                            <div class="avatar" style="background-color:rgb(114, 86, 141)">K8</div> <!--人像-->
-                            <div class="tool-box">
-                                <div>
-                                    <input type="checkbox" id="pin2" class="tool-checkbox pin">
-                                    <label class="tool" for="pin2"></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="dashboard2" class="tool-checkbox dashboard">
-                                    <label class="tool" for="dashboard2"></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="close-full-screen2" class="tool-checkbox close-full-screen">
-                                    <label class="tool" for="close-full-screen2"></label>
-                                </div>
-                            </div> <!--中央工具表-->
-                        </div>
-                        <div class="left-bottom">
-                            <div class="name">CsKuo8</div>
-                        </div> <!--左下圖標-->
-                    </div>
-                    <div class="person-block" id="person3">
-                        <button class="close-sign">
-                            <img src=".\img_white\close_white_24dp.svg" >
-                        </button> <!--左上靜音-->
-                        <div class="mute-sign">
-                            <img src=".\img_white\mic_off_white_18dp.svg" >
-                        </div> <!--右上靜音-->
-                        <div class="middle-box">
-                            <div class="avatar" style="background-color:rgb(2, 136, 83)">紅玉</div> <!--人像-->
-                            <div class="tool-box">
-                                <div>
-                                    <input type="checkbox" id="pin3" class="tool-checkbox pin">
-                                    <label class="tool" for="pin3"></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="dashboard3" class="tool-checkbox dashboard">
-                                    <label class="tool" for="dashboard3"></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="close-full-screen3" class="tool-checkbox close-full-screen">
-                                    <label class="tool" for="close-full-screen3"></label>
-                                </div>
-                            </div> <!--中央工具表-->
-                        </div>
-                        <div class="left-bottom">
-                            <div class="name">劉紅玉</div>
-                        </div> <!--左下圖標-->
-                    </div>
-                    <div class="person-block" id="person4">
-                        <button class="close-sign">
-                            <img src=".\img_white\close_white_24dp.svg" >
-                        </button> <!--左上靜音-->
-                        <div class="mute-sign">
-                            <img src=".\img_white\mic_off_white_18dp.svg" >
-                        </div> <!--右上靜音-->
-                        <div class="middle-box">
-                            <div class="avatar" style="background-color:rgb(181, 175, 5)">成景</div> <!--人像-->
-                            <div class="tool-box">
-                                <div>
-                                    <input type="checkbox" id="pin4" class="tool-checkbox pin">
-                                    <label class="tool" for="pin4"></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="dashboard4" class="tool-checkbox dashboard">
-                                    <label class="tool" for="dashboard4"></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="close-full-screen4" class="tool-checkbox close-full-screen">
-                                    <label class="tool" for="close-full-screen4"></label>
-                                </div>
-                            </div> <!--中央工具表-->
-                        </div>
-                        <div class="left-bottom">
-                            <div class="name">聶成景</div>
-                        </div> <!--左下圖標-->
-                    </div>
-                    <div class="person-block" id="person5">
-                        <button class="close-sign">
-                            <img src=".\img_white\close_white_24dp.svg" >
-                        </button> <!--左上靜音-->
-                        <div class="mute-sign">
-                            <img src=".\img_white\mic_off_white_18dp.svg" >
-                        </div> <!--右上靜音-->
-                        <div class="middle-box">
-                            <div class="avatar" style="background-color:rgb(11, 161, 6)">圈圈</div> <!--人像-->
-                            <div class="tool-box">
-                                <div>
-                                    <input type="checkbox" id="pin5" class="tool-checkbox pin">
-                                    <label class="tool" for="pin5"></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="dashboard5" class="tool-checkbox dashboard">
-                                    <label class="tool" for="dashboard5"></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="close-full-screen5" class="tool-checkbox close-full-screen">
-                                    <label class="tool" for="close-full-screen5"></label>
-                                </div>
-                            </div> <!--中央工具表-->
-                        </div>
-                        <div class="left-bottom" >
-                            <div class="name">田圈圈</div>
-                        </div> <!--左下圖標-->
-                    </div>
+                    
                 </div>
             </section>
             <footer class="footer">
@@ -218,7 +107,7 @@
                         <div class="tooltip" >更多選項</div>
                     </div>
                     <div>
-                        <button id="add-person-block" class="tool">
+                        <button id="add-person-block" class="tool" onclick = "add_people()">
                             <img src=".\img_white\add_white_24dp.svg" >
                         </button>
                         <div class="tooltip" >新增人員</div>
@@ -259,5 +148,6 @@
                 </div>
             </footer>
         </div>
+        <script src="./main.js"></script>
     </body>
 </html>
