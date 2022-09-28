@@ -11,14 +11,14 @@
     </head>
     <body>
         <div id="root">
-            <section class="main" id="main">
+            <div class="main" id="main">
                 <div class="person-block" id="anchored-person">
                     <div class="mute-sign">
                         <img src=".\img_white\mic_off_white_18dp.svg" >
                     </div> <!--右上靜音-->
                     <div class="middle-box">
-                        <div class="avatar">CK</div> <!--人像-->
-                        <div class="tool-box">
+                        <div class="avatar" style="background-color:red">CK</div> <!--人像-->
+                        <div class="tool-box" onclick="{switch_anchored(this.parentNode.parentNode.id)}">
                             <div>
                                 <input type="checkbox" id="pin0" class="tool-checkbox pin">
                                 <label class="tool" for="pin0"></label>
@@ -49,9 +49,9 @@
                         <div class="mute-sign">
                             <img src=".\img_white\mic_off_white_18dp.svg" >
                         </div> <!--右上靜音-->
-                        <div class="middle-box">
-                            <div class="avatar" style="background-color:rgb(0, 89, 255)">Xn</div> <!--人像-->
-                            <div class="tool-box">
+                        <div class="middle-box" >
+                            <div class="avatar" style="background-color:rgb(0, 89, 255)">M1</div> <!--人像-->
+                            <div class="tool-box" onclick="switch_anchored(this.parentNode.parentNode.id)">
                                 <div>
                                     <input type="checkbox" id="pin1" class="tool-checkbox pin">
                                     <label class="tool" for="pin1"></label>
@@ -67,12 +67,12 @@
                             </div> <!--中央工具表-->
                         </div>
                         <div class="left-bottom">
-                            <div class="name">Xn</div>
+                            <div class="name">Member 1</div>
                         </div> <!--左下圖標-->
                     </div>
                     
                 </div>
-            </section>
+            </div>
             <footer class="footer">
                 <div class="meet-info" >
                     <div id="time-name" data-abbr="凌晨12:34 | ···">
