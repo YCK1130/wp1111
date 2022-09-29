@@ -16,21 +16,22 @@
                     <div class="mute-sign">
                         <img src=".\img_white\mic_off_white_18dp.svg" >
                     </div> <!--右上靜音-->
+                    <!-- <div></div> -->
                     <div class="middle-box">
                         <div class="avatar" style="background-color:red">CK</div> <!--人像-->
-                        <div class="tool-box" onclick="{switch_anchored(this.parentNode.parentNode.id)}">
+                        <div class="tool-box" onclick="{handle_anchored(this.parentNode.parentNode.id)}">
                             <div>
-                                <input type="checkbox" id="pin0" class="tool-checkbox pin">
+                                <input type="checkbox" id="pin0" class="tool-checkbox pin" disabled="disabled">
                                 <label class="tool" for="pin0"></label>
                                 <div class="tooltip" style="transform: translate(-1.5vw, 1.5vh);background-color: rgb(61,64,67);">將自己釘選在主畫面上</div>
                             </div>
                             <div>
-                                <input type="checkbox" id="dashboard0" class="tool-checkbox dashboard">
+                                <input type="checkbox" id="dashboard0" class="tool-checkbox dashboard" disabled="disabled">
                                 <label class="tool" for="dashboard0"></label>
                                 <div class="tooltip" style="transform: translate(-0.5vw, 1.5vh);background-color: rgb(61,64,67);">變更版面配置</div>
                             </div>
                             <div>
-                                <input type="checkbox" id="close-full-screen0" class="tool-checkbox close-full-screen">
+                                <input type="checkbox" id="close-full-screen0" class="tool-checkbox close-full-screen" disabled="disabled">
                                 <label class="tool" for="close-full-screen0"></label>
                                 <div class="tooltip" style="transform: translate(0, 1.5vh);background-color: rgb(61,64,67);">最小化</div>
                             </div>
@@ -49,19 +50,20 @@
                         <div class="mute-sign">
                             <img src=".\img_white\mic_off_white_18dp.svg" >
                         </div> <!--右上靜音-->
+                        <!-- <div></div> -->
                         <div class="middle-box" >
                             <div class="avatar" style="background-color:rgb(0, 89, 255)">M1</div> <!--人像-->
-                            <div class="tool-box" onclick="switch_anchored(this.parentNode.parentNode.id)">
+                            <div class="tool-box" onclick="handle_anchored(this.parentNode.parentNode.id)">
                                 <div>
-                                    <input type="checkbox" id="pin1" class="tool-checkbox pin">
+                                    <input type="checkbox" id="pin1" class="tool-checkbox pin" disabled="disabled">
                                     <label class="tool" for="pin1"></label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="dashboard1" class="tool-checkbox dashboard">
+                                    <input type="checkbox" id="dashboard1" class="tool-checkbox dashboard" disabled="disabled">
                                     <label class="tool" for="dashboard1"></label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="close-full-screen1" class="tool-checkbox close-full-screen">
+                                    <input type="checkbox" id="close-full-screen1" class="tool-checkbox close-full-screen" disabled="disabled">
                                     <label class="tool" for="close-full-screen1"></label>
                                 </div>
                             </div> <!--中央工具表-->
