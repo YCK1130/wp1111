@@ -344,6 +344,11 @@ body {
 
     user-select: none;
 }
+.name{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 /* footer */
 .footer{
     display:grid;
@@ -736,7 +741,7 @@ body {
         display: none;
     }
 }
-@media (max-width: 650px) {
+@media (max-width: 680px) {
     .left-bottom {
         font-size: 12px;
     }

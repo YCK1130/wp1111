@@ -14,7 +14,7 @@
             <div class="main" id="main">
                 <div class="person-block" id="anchored-person">
                     <div class="mute-sign">
-                        <img src=".\img_white\mic_off_white_18dp.svg" >
+                        <img src=".\img_white\mic_off_white_18dp.svg" class="mic">
                     </div> <!--右上靜音-->
                     <!-- <div></div> -->
                     <div class="middle-box">
@@ -48,7 +48,7 @@
                             <img src=".\img_white\close_white_24dp.svg" >
                         </button> <!--左上靜音-->
                         <div class="mute-sign">
-                            <img src=".\img_white\mic_off_white_18dp.svg" >
+                            <img src=".\img_white\mic_off_white_18dp.svg" class="mic">
                         </div> <!--右上靜音-->
                         <!-- <div></div> -->
                         <div class="middle-box" >
@@ -84,7 +84,7 @@
                 <div class="tool-container" id="middle">
                     <!-- animaiton unsolve -->
                     <div id="mic-block">
-                        <input type="checkbox" id="keyboard_voice" class="tool-checkbox">
+                        <input type="checkbox" id="keyboard_voice" class="tool-checkbox" onclick="change_mic_status()">
                         <label class="tool" for="keyboard_voice"></label>
                         <div class="tooltip" >開啟麥克風(Ctrl+D)</div>
                     </div>

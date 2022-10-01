@@ -216,9 +216,27 @@ function re_display(){
         }
         
     }
+    change_mic_status();
     // console.log(num_people,total_people,more_num,people_on_screen);
 }
 
+function change_mic_status(){
+    let Names = document.getElementsByClassName("name");
+    for(let name of Names){
+        if(!document.getElementById("keyboard_voice").checked&&name.innerHTML==="你"){
+            console.log("hi");
+            name.parentNode.parentNode.querySelector(".mic").style.display = "none";
+            console.log(name.parentNode.parentNode.querySelector(".mic").parentNode);
+            console.log(name.parentNode.parentNode.style.backgroundColor);
+            name.parentNode.parentNode.querySelector(".mic").parentNode.style.backgroundColor="inherit";
+        }
+        else{
+            name.parentNode.parentNode.querySelector(".mic").parentNode.style.backgroundColor = (name.parentNode.parentNode.id==="anchored-person")?"rgb(61,64,67)":"rgb(32,33,36)";
+            name.parentNode.parentNode.querySelector(".mic").style.display = "block";
+        }
+    }
+    document.querySelector("#mic-block  .tooltip").innerHTML= (document.getElementById("keyboard_voice").checked)?("開啟麥克風(Ctrl+D)"):("關閉麥克風(Ctrl+D)")
+}
 
 function switch_anchored(id){
     let anchored_data = {
@@ -243,7 +261,7 @@ function switch_anchored(id){
     
     
     document.getElementById(id).querySelector(".close-sign").style.display = (anchored_data.name==="你")?"none":"flex";
-
+    change_mic_status();
     // console.log(anchored_data,target_data)
 }
 function unanchored(){
