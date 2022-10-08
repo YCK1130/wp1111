@@ -13,7 +13,6 @@
     height: 5rem;
 }
 
-
 .todo-app__input:focus {
     outline: none;
 }
@@ -22,4 +21,3 @@
     font-weight: 100;
     opacity: 0.6;
 }
-

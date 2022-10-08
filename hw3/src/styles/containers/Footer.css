@@ -13,6 +13,7 @@
 
 .todo-app__total {
     min-width: 3em;
+    user-select: none;
 }
 
 .todo-app__view-buttons {
@@ -27,7 +28,6 @@
     list-style: none;
 }
 
-
 .todo-app__view-buttons button {
     border: none;
     padding: 5px;
@@ -38,7 +38,7 @@
     cursor: pointer;
 }
 .todo-app__view-buttons button:hover {
-    background-color:rgb(218, 218, 218);
+    background-color: rgb(218, 218, 218);
 }
 
 .todo-app__view-buttons button:focus {
@@ -55,10 +55,11 @@
     border: 1px solid transparent;
     font-size: 0.8em;
     font-weight: inherit;
+    border-radius: 5px;
     cursor: pointer;
 }
 .todo-app__clean button:hover {
-    background-color:rgb(218, 218, 218);
+    background-color: rgb(218, 218, 218);
 }
 .todo-app__clean button:focus {
     outline: none;

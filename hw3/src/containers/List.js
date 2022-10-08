@@ -3,6 +3,8 @@ import "../styles/containers/List.css";
 import Todo from "../components/Todo";
 const List = (props) => {
     // console.log(props.data);
+    const { setTodoNum, todoList, setTodoList, todoNum } = props;
+
     return (
         <ul className="todo-app__list">
             {props.data.map((value) => {
@@ -10,10 +12,10 @@ const List = (props) => {
                     <Todo
                         data={value}
                         key={`todo${value.id}`}
-                        setTodoNum={props.setTodoNum}
-                        todoNum={props.todoNum}
-                        todoList={props.data}
-                        setTodoList={props.setTodoList}
+                        setTodoNum={setTodoNum}
+                        todoNum={todoNum}
+                        todoList={todoList}
+                        setTodoList={setTodoList}
                     ></Todo>
                 );
             })}

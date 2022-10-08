@@ -14,9 +14,9 @@ const Todo = (props) => {
     };
 
     const handleDel = () => {
-        let DelList = todoList;
         setTodoList(todoList.filter((item) => item.id !== props.data.id));
     };
+
     if (useStatus) {
         return (
             <li
@@ -28,6 +28,7 @@ const Todo = (props) => {
                         type="checkbox"
                         id={`${props.data.id}`}
                         className="todo-item-input"
+                        checked={useStatus}
                         onChange={handleClick}
                     ></input>
                     <label htmlFor={`${props.data.id}`}></label>
@@ -49,12 +50,18 @@ const Todo = (props) => {
                     type="checkbox"
                     id={`${props.data.id}`}
                     className="todo-item-input"
+                    checked={useStatus}
                     onChange={handleClick}
                 ></input>
                 <label htmlFor={`${props.data.id}`}></label>
             </div>
             <h1 className="todo-app__item-detail">{props.data.text}</h1>
-            <img src={x_img} alt="x" className="todo-app__item-x"></img>
+            <img
+                src={x_img}
+                alt="x"
+                className="todo-app__item-x"
+                onClick={handleDel}
+            ></img>
         </li>
     );
 };
