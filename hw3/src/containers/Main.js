@@ -43,40 +43,13 @@ const Main = (props) => {
             </div>
         );
     }
-
+    let passList;
     if (viewpoint === "Active") {
-        const activeList = todoList.filter((item) => item.completed !== true);
-        return (
-            <div className="todo-app__main">
-                <form name="form" id="form" onSubmit={handleInput}>
-                    <Input id="todo-input"></Input>
-                </form>
-                <List
-                    data={activeList}
-                    todoList={todoList}
-                    setTodoNum={setTodoNum}
-                    todoNum={props.todoNum}
-                    setTodoList={props.setTodoList}
-                ></List>
-            </div>
-        );
-    }
-    if (viewpoint === "Completed") {
-        const completeList = todoList.filter((item) => item.completed === true);
-        return (
-            <div className="todo-app__main">
-                <form name="form" id="form" onSubmit={handleInput}>
-                    <Input id="todo-input"></Input>
-                </form>
-                <List
-                    data={completeList}
-                    todoList={todoList}
-                    setTodoNum={setTodoNum}
-                    todoNum={props.todoNum}
-                    setTodoList={props.setTodoList}
-                ></List>
-            </div>
-        );
+        passList = todoList.filter((item) => item.completed !== true);
+    } else if (viewpoint === "Completed") {
+        passList = todoList.filter((item) => item.completed === true);
+    } else {
+        passList = todoList;
     }
 
     return (
@@ -85,7 +58,7 @@ const Main = (props) => {
                 <Input id="todo-input"></Input>
             </form>
             <List
-                data={todoList}
+                data={passList}
                 todoList={todoList}
                 setTodoNum={setTodoNum}
                 todoNum={props.todoNum}

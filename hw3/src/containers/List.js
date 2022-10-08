@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/containers/List.css";
 import Todo from "../components/Todo";
 const List = (props) => {
-    // console.log(props.data);
     const { setTodoNum, todoList, setTodoList, todoNum } = props;
 
     return (

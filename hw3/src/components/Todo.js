@@ -17,34 +17,12 @@ const Todo = (props) => {
         setTodoList(todoList.filter((item) => item.id !== props.data.id));
     };
 
+    let item_style = {};
     if (useStatus) {
-        return (
-            <li
-                className="todo-app__item"
-                style={{ textDecorationLine: "line-through", opacity: 0.5 }}
-            >
-                <div className="todo-app__checkbox">
-                    <input
-                        type="checkbox"
-                        id={`${props.data.id}`}
-                        className="todo-item-input"
-                        checked={useStatus}
-                        onChange={handleClick}
-                    ></input>
-                    <label htmlFor={`${props.data.id}`}></label>
-                </div>
-                <h1 className="todo-app__item-detail">{props.data.text}</h1>
-                <img
-                    src={x_img}
-                    alt="x"
-                    className="todo-app__item-x"
-                    onClick={handleDel}
-                ></img>
-            </li>
-        );
+        item_style = { textDecorationLine: "line-through", opacity: 0.5 };
     }
     return (
-        <li className="todo-app__item">
+        <li className="todo-app__item" style={item_style}>
             <div className="todo-app__checkbox">
                 <input
                     type="checkbox"
