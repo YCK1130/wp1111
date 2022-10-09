@@ -7,7 +7,8 @@
 ****************************************************************************/
 
 * {
-    font-family: 'Futura';
+    font-family: "Futura";
+    user-select: none;
 }
 
 .HomeWrapper {
@@ -18,10 +19,12 @@
 
 .title {
     font-size: 75px;
-    font-family: 'Futura';
+    font-family: "Futura";
     font-weight: 900;
     padding-top: 50px;
     color: #0f0f4b;
+    margin-top: 0;
+    margin-bottom: 30px;
 }
 
 .btn {
@@ -33,7 +36,6 @@
     color: #0f0f4b;
     background-color: lightblue;
     border: 3px solid #0f0f4b;
-
 }
 
 .btn:hover {
@@ -43,25 +45,35 @@
     border: 3px solid transparent;
 }
 
-.controlContainer {}
+.btn:disabled {
+    opacity: 0.7;
+}
+/* .controlContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+} */
 
 .controlWrapper {
     background-color: lightblue;
     border-radius: 10px;
     padding: 20px;
+    /* width: 95vw; */
 }
 
 .controlPanel {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .error {
     width: 100%;
     font-size: 20px;
     font-weight: 300;
+    color: "#880000";
 }
-
 
 .controlCol {
     display: inline-block;
@@ -72,7 +84,6 @@
     outline: 0;
     border: 0;
     border-radius: 500px;
-
 }
 
 .controlTitle {
@@ -86,8 +97,8 @@
 }
 
 /* Chrome */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    input[type='range'] {
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input[type="range"] {
         -webkit-appearance: none !important;
         width: 400px;
         height: 5px;
@@ -96,7 +107,7 @@
         outline: none;
     }
 
-    input[type='range']::-webkit-slider-thumb {
+    input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none !important;
         height: 20px;
         width: 20px;
@@ -106,8 +117,7 @@
         cursor: ew-resize;
     }
 
-    input[type='range']::-webkit-slider-thumb:hover {
+    input[type="range"]::-webkit-slider-thumb:hover {
         background: #0f0f4b;
     }
-
 }

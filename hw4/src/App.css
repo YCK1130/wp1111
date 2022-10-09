@@ -7,17 +7,20 @@
 ****************************************************************************/
 
 * {
-      font-family: 'Futura';
+    font-family: "Futura";
 }
 
 html,
 body {
-      height: 100%;
+    height: 100vh;
 }
 
 .App {
-      display: "flex";
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    display: "flex";
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* width: 100%;
+    height: 100%; */
+    overflow-x: hidden;
 }

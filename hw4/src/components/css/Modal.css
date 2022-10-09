@@ -7,7 +7,7 @@
 ****************************************************************************/
 
 * {
-    font-family: 'Futura';
+    font-family: "Futura";
 }
 
 .modal {
@@ -20,7 +20,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
 }
 
 .modalWrapper {
@@ -36,7 +35,6 @@
     padding: auto;
     background-color: lightblue;
     border-radius: 25px;
-
 }
 
 .modalResult {
@@ -69,7 +67,6 @@
     height: 60%;
     width: 50%;
     margin: auto 5%;
-
 
     display: flex;
     align-items: center;

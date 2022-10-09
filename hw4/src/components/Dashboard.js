@@ -6,40 +6,53 @@
   Copyright     [ 2022 10 ]
 ****************************************************************************/
 
-import React, { useEffect, useState } from 'react';
-import "./css/Dashboard.css"
+import React, { useEffect, useState } from "react";
+import "./css/Dashboard.css";
 let timeIntervalId;
-
+let startTime;
 export default function Dashboard({ remainFlagNum, gameOver }) {
-  let [time, setTime] = useState(0);
-  let [sTime, setSTime] = useState(0);
+    let [time, setTime] = useState(0);
+    let [sTime, setSTime] = useState(0);
 
-  // Advanced TODO: Implement the timer on the Dashboard
-  {/* Useful Hint: Try to understand the difference between time and sTime. */ }
-
-  useEffect(() => {
+    // Advanced TODO: Implement the timer on the Dashboard
     
-  }, []);
+    /* Useful Hint: Try to understand the difference between time and sTime. */
+    
 
-  useEffect(() => {
+    useEffect(() => {
+        console.log("hi");
+        startTime = Date.now();
+        timeIntervalId = setInterval(Timer, 500);
+        console.log(startTime);
+        return () => {
+            clearInterval(timeIntervalId);
+        };
+    }, []);
 
-  }, []);
+    useEffect(() => {
+        setSTime(time);
+        setTime(0);
+        startTime = Date.now();
+    }, [gameOver]);
 
-
-  return (
-    <div className="dashBoard" >
-      <div id='dashBoard_col1' >
-        <div className='dashBoard_col'>
-          <p className='icon'>🚩</p>
-          {remainFlagNum}
+    const Timer = () => {
+        // console.log(Date.now() - startTime);
+        setTime(Math.floor((Date.now() - startTime) / 1000));
+    };
+    return (
+        <div className="dashBoard">
+            <div id="dashBoard_col1">
+                <div className="dashBoard_col">
+                    <p className="icon">🚩</p>
+                    {remainFlagNum}
+                </div>
+            </div>
+            <div id="dashBoard_col2">
+                <div className="dashBoard_col">
+                    <p className="icon">⏰</p>
+                    {gameOver ? sTime : time}
+                </div>
+            </div>
         </div>
-      </div>
-      <div id='dashBoard_col2' >
-        <div className='dashBoard_col'>
-          <p className='icon'>⏰</p>
-          {gameOver ? sTime : time}
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
