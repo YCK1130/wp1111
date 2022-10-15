@@ -20,10 +20,8 @@ export default function Dashboard({ remainFlagNum, gameOver }) {
     
 
     useEffect(() => {
-        console.log("hi");
         startTime = Date.now();
         timeIntervalId = setInterval(Timer, 500);
-        console.log(startTime);
         return () => {
             clearInterval(timeIntervalId);
         };
@@ -36,7 +34,6 @@ export default function Dashboard({ remainFlagNum, gameOver }) {
     }, [gameOver]);
 
     const Timer = () => {
-        // console.log(Date.now() - startTime);
         setTime(Math.floor((Date.now() - startTime) / 1000));
     };
     return (

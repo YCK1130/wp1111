@@ -91,7 +91,6 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
             setBoard(newBoard);
             setNonMineCount(newNonMineCount);
         }
-        // console.log(newNonMineCount);
         if (newNonMineCount === 0) setWin(true);
     };
 

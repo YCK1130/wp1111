@@ -27,11 +27,9 @@ const HomePage = ({
     const showControlPanel = () => {
         let nowShowPanel = !showPanel;
         setShowPanel(nowShowPanel);
-        // console.log(nowShowPanel);
         if (nowShowPanel) setPaneStyle({});
         else setPaneStyle({ display: "none" });
     };
-    // console.log(Pane_style);
     return (
         <div className="HomeWrapper">
             <p className="title">MineSweeper</p>
@@ -69,7 +67,7 @@ const HomePage = ({
                                 min="2"
                                 // max={`${maxBoardSize * maxBoardSize}`}
                                 max="100"
-                                defaultValue="10"
+                                defaultValue={`${mineNum}`}
                                 onChange={mineNumOnChange}
                             ></input>
                             <p
@@ -92,7 +90,7 @@ const HomePage = ({
                                 step="1"
                                 min="3"
                                 max={`${maxBoardSize}`}
-                                defaultValue="8"
+                                defaultValue={`${boardSize}`}
                                 onChange={boardSizeOnChange}
                             ></input>
                             <p

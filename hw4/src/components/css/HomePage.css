@@ -9,6 +9,7 @@
 * {
     font-family: "Futura";
     user-select: none;
+    box-sizing: content-box;
 }
 
 .HomeWrapper {
