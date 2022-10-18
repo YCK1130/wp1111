@@ -107,6 +107,10 @@ const useWordle = (solution) => {
     // Handle the action of pressing a character.
     const handleCharacter = (key) => {
         // If curGuess's length is longer than 5, do nothing
+        if (isCorrect) {
+            console.log("please restart first");
+            return;
+        }
         if (curGuess.length < 5) {
             setCurGuess(curGuess + key.toLowerCase());
         }
