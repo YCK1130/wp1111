@@ -5,6 +5,7 @@ const router = express.Router();
 var num2guess;
 router.post("/start", (_, res) => {
     num2guess = getNumber(); // ⽤亂數產⽣⼀個猜數字的 number，存在 memory DB
+    console.log(num2guess);
     res.json({ msg: "The game has started." });
 });
 router.get("/guess", (req, res) => {
@@ -15,14 +16,14 @@ router.get("/guess", (req, res) => {
     // res.status(406).send({ msg: 'Not a legal number.' })
     // 如果沒有問題，回傳 status
     const numFromClient = req.query.number;
-    if (!/^[0-9]{1,3}/.test(numFromClient)) {
-        res.status(406).send({ msg: "Not a legal number." });
+    if (!/^[0-9]{1,3}$/.test(numFromClient)) {
+        res.status(406).send({ msg: `"${numFromClient}" is not a legal number.` });
         return;
     }
     const testNum = Number(numFromClient);
     // res.status(406).send({ msg: Number(numFromClient) });
     if (testNum > 100 || testNum < 1) {
-        res.status(406).send({ msg: "Not a legal number." });
+        res.status(406).send({ msg: `"${numFromClient}" is not a legal number.` });
         return;
     }
 
@@ -31,6 +32,7 @@ router.get("/guess", (req, res) => {
     else if (testNum == num2guess) res.send({ msg: "Equal" });
     else {
         res.status(500).send({ msg: "bug" });
+        console.log(testNum,numFromClient);
     }
     return;
 });
