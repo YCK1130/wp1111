@@ -15,15 +15,15 @@ const Wrapper = styled.section`
     }
 `;
 
-const Header = () => {
-    const { clearMessage, addRegularMessage } = useScoreCard();
+const Header = ({ studentData, setStudentData }) => {
+    const { clearMessage } = useScoreCard();
 
     const handleClear = async () => {
         const {
             data: { message },
         } = await axios.delete("/cards");
         clearMessage(message);
-        // addRegularMessage(message);
+        setStudentData([]);
     };
 
     return (
