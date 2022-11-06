@@ -6,15 +6,15 @@ const saveScore = async (name, subject, score) => {
         name: name,
         subject: subject,
     });
-    // console.log(existing);
+    // // console.log(existing);
     if (existing) {
         try {
-            console.log(`User updated: ${name}, ${subject}, ${score}`);
+            // console.log(`User updated: ${name}, ${subject}, ${score}`);
             const status = await ScoreCard.updateOne(
                 { _id: existing._id },
                 { $set: { score: score } }
             );
-            // console.log(status);
+            // // console.log(status);
             return {
                 msg: `Updating(${name}, ${subject}, ${score})`,
                 status: true,
@@ -26,7 +26,7 @@ const saveScore = async (name, subject, score) => {
     }
     try {
         const newScoreCard = new ScoreCard({ name, subject, score });
-        console.log("Created user", newScoreCard);
+        // console.log("Created user", newScoreCard);
         await newScoreCard.save();
         return {
             msg: `Adding(${name}, ${subject}, ${score})`,
@@ -41,7 +41,7 @@ const saveScore = async (name, subject, score) => {
 const deleteDB = async () => {
     try {
         await ScoreCard.deleteMany({});
-        console.log("Database deleted");
+        // console.log("Database deleted");
         return { msg: "Database cleared", status: true };
     } catch (e) {
         return { msg: "Database deletion failed: " + e, status: false };
@@ -56,7 +56,7 @@ const findDB = async (queryType, queryString) => {
         } else {
             dataSet = await ScoreCard.find({ subject: queryString });
         }
-        console.log(dataSet.length !== 0 ? "Y" : "N");
+        // console.log(dataSet.length !== 0 ? "Y" : "N");
         const messages =
             dataSet.length !== 0
                 ? dataSet.map(
@@ -84,19 +84,19 @@ router.delete("/cards", async (req, res) => {
 });
 router.post("/card", async (req, res) => {
     const { name, subject, score } = req.body;
-    // console.log(name, subject, score);
+    // // console.log(name, subject, score);
     const { msg, status } = await saveScore(name, subject, score);
-    // console.log(msg, status);
+    // // console.log(msg, status);
     res.send({ message: msg, card: status });
     // await saveScore("Ken", "Math", 100);
 });
 router.get("/cards", async (req, res) => {
-    // console.log(req);
+    // // console.log(req);
     const { type, queryString } = req.query;
     const { messages, message, status } = await findDB(type, queryString);
     res.send({ messages: messages, message: message });
 
-    console.log(type, queryString);
-    console.log(messages, message);
+    // console.log(type, queryString);
+    // console.log(messages, message);
 });
 export default router;

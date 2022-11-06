@@ -87,7 +87,7 @@ const Body = ({ studentData, setStudentData }) => {
             subject,
             score,
         });
-        console.log(message, card);
+        // console.log(message, card);
         if (!card) addErrorMessage(message);
         else addCardMessage(message);
         const {
@@ -95,12 +95,12 @@ const Body = ({ studentData, setStudentData }) => {
         } = await axios.get("/student/data", {
             params: { queryString: name, query: "Name" },
         });
-        console.log(dataSet);
+        // console.log(dataSet);
         setStudentData(dataSet);
     };
 
     const handleQuery = async () => {
-        console.log(queryType, queryString);
+        // console.log(queryType, queryString);
         // const {
         //     data: { messages, message },
         // } = await axios.get("/cards", {
@@ -117,7 +117,7 @@ const Body = ({ studentData, setStudentData }) => {
         } = await axios.get("/student/data", {
             params: { queryString, query: queryType },
         });
-        console.log(dataSet);
+        // console.log(dataSet);
         if (msg) addErrorMessage(msg);
         setStudentData(dataSet);
     };

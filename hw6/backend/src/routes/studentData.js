@@ -22,12 +22,12 @@ const findStudentData = async (queryString, query) => {
 };
 router.get("/data", async (req, res) => {
     const { queryString, query } = req.query;
-    console.log(queryString, query);
+    // console.log(queryString, query);
     const { dataSet, message, status } = await findStudentData(
         queryString,
         query
     );
-    console.log(dataSet, message);
+    // console.log(dataSet, message);
     res.send({ dataSet: dataSet, message: message });
 });
 

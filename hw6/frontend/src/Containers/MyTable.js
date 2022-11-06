@@ -8,8 +8,6 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@material-ui/core/Paper";
 
 import TableSortLabel from "@mui/material/TableSortLabel";
-import Box from "@mui/material/Box";
-import { visuallyHidden } from "@mui/utils";
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
 
@@ -78,12 +76,12 @@ const sortAlphaNum = (a, b) => {
 };
 
 const descendingComparator = (a, b, orderBy) => {
-    // console.log(a, b, orderBy);
+    // // console.log(a, b, orderBy);
     return sortAlphaNum(a[orderBy].toString(), b[orderBy].toString());
 };
 
 const getComparator = (order, orderBy) => {
-    console.log(order, orderBy);
+    // console.log(order, orderBy);
     return order === "desc"
         ? (a, b) => descendingComparator(a, b, orderBy)
         : (a, b) => -descendingComparator(a, b, orderBy);
@@ -109,7 +107,7 @@ const MyTable = ({ titles, dataSet }) => {
     const [order, setOrder] = useState("asc");
 
     const handleRequestSort = (event, property) => {
-        console.log(property);
+        // console.log(property);
         const isAsc = orderBy === property && order === "asc";
         setOrder(isAsc ? "desc" : "asc");
         setOrderBy(property);
