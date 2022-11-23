@@ -51,7 +51,7 @@ const displayStatus = (s) => {
     }
 };
 function ChatRoom({ user }) {
-    const { userName, setNowUser } = useUserData();
+    const { userName, setNowUser, setLogOut } = useUserData();
     const [body, setBody] = useState("");
     const bodyRef = useRef(null);
     const RoomBottomRef = useRef(null);
@@ -85,7 +85,9 @@ function ChatRoom({ user }) {
             ))
         );
     };
-
+    const handleLogOut = () => {
+        setLogOut();
+    };
     useEffect(() => {
         scrollToBottom();
         setMsgSent(false);
@@ -99,7 +101,7 @@ function ChatRoom({ user }) {
                 </Button>
                 <Button
                     type="primary"
-                    onClick={() => setNowUser("")}
+                    onClick={() => handleLogOut()}
                     style={{ marginLeft: "10px" }}
                 >
                     Log Out

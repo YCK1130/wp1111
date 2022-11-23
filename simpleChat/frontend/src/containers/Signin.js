@@ -14,15 +14,16 @@ const Wrapper = styled.div`
     margin: auto;
 `;
 const SignIn = () => {
-    const { setNowUser } = useUserData();
-    const [enteredName, setEnteredName] = useState("");
+    const { userName, setNowUser } = useUserData();
+    const [enteredName, setEnteredName] = useState();
+    console.log(userName);
     return (
         <Wrapper>
             <Title></Title>
             <Input.Search
                 enterButton="Log In"
                 placeholder="Type your name..."
-                value={enteredName}
+                value={enteredName || userName}
                 onChange={(e) => setEnteredName(e.target.value)}
                 onSearch={(msg) => {
                     if (enteredName === "") {
