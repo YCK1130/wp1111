@@ -1,7 +1,9 @@
 import { createContext, useState, useContext, useEffect } from "react";
 const UserData = createContext({
     userName: "",
+    signedIn: false,
     setNowUser: () => {},
+    setLogOut: () => {},
 });
 const LOCALSTORAGE_KEY = "save-me";
 const savedMe = localStorage.getItem(LOCALSTORAGE_KEY);

@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import WebSocket from "ws";
 import mongo from "./mongo";
 import wsConnect from "./wsConnect";
-
+import { v4 as uuidv4 } from "uuid";
 mongo.connect();
 const app = express();
 const server = http.createServer(app);
@@ -18,7 +18,10 @@ db.once("open", () => {
         console.log("hi");
         // await delay(500);
         // wsConnect.initData(ws);
-        wsConnect.onMessage(ws);
+        ws.id = uuidv4();
+        ws.box = "";
+        // wsConnect.onMessage(ws);
+        wsConnect.onChatBoxMessage(wss, ws);
         // Define WebSocket connection logic
     });
 });

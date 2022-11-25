@@ -92,7 +92,7 @@ const useChat = (setMsgSent) => {
                 break;
         }
     };
-    // define sendMessage(), sendData()
+    // simple chatbox
     const clearMessages = () => {
         sendData(["clear"]);
     };
@@ -103,12 +103,29 @@ const useChat = (setMsgSent) => {
     const askInit = () => {
         sendData(["init", "hi"]);
     };
+
+    //ChatBoxes
+    const startChat = (name, to) => {
+        console.log(`start a chatbox of ${(name, to)}`);
+        sendData(["CHAT", { name, to }]);
+    };
+    const sendMessageInBox = (payload) => {
+        console.log("MESSAGE", payload);
+        sendData(["MESSAGE", payload]);
+    };
+    const clearChatBox = (participants) => {
+        sendData(["CLEAR", participants]);
+        console.log("clear");
+    };
     return {
         status,
         messages,
         sendMessage,
         clearMessages,
         askInit,
+        startChat,
+        sendMessageInBox,
+        clearChatBox,
     };
 };
 export default useChat;

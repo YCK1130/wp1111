@@ -1,18 +1,42 @@
 import styled from "styled-components";
 import { Tag } from "antd";
-const MsgDIV = styled.p``;
+const StyledMessage = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: ${({ isMe }) => (isMe ? "row-reverse" : "row")};
+
+    margin: 8px 10px;
+    & p {
+        max-width: 70%;
+        word-wrap: break-word;
+    }
+    & p:first-child {
+        margin: 0 5px;
+    }
+    & p:last-child {
+        padding: 2px 5px;
+        border-radius: 5px;
+        background: #eee;
+        color: gray;
+        margin: auto 0;
+        padding-right: 0.5em;
+        padding-left: 0.5em;
+    }
+`;
 const Message = ({ name, body, user }) => {
-    const hi = name === user ? console.log(`${user},${name}`) : null;
+    // const hi = name === user ? console.log(`${user},${name}`) : null;
     return (
-        <MsgDIV>
-            <Tag
-                color="blue"
-                style={name === user ? { alignSelf: "self-end" } : {}}
-            >
-                {name}
-            </Tag>{" "}
-            {body}
-        </MsgDIV>
+        <StyledMessage isMe={name === user}>
+            <p>
+                <Tag
+                    color="blue"
+                    style={name === user ? { display: "none" } : {}}
+                >
+                    {name}
+                </Tag>{" "}
+                {body}
+            </p>
+        </StyledMessage>
     );
 };
 export default Message;
