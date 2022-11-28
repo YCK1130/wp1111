@@ -183,7 +183,7 @@ export default {
                         )
                     );
                     initChatBoxData(chatboxData, ws);
-                    // console.log("chatboxdata", chatboxData);
+                    console.log("chatboxdata", chatboxData);
                     break;
                 case "MESSAGE":
                     const { body } = payload;
