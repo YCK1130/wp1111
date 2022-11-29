@@ -47,7 +47,7 @@ const RestaurantPage = () => {
         getComments();
         setLoading(false);
         // TODO Part III-3-c: update the comment display immediately after submission
-    }, [comments, loading]);
+    }, [loading]);
 
     /* TODO Part III-2-b: calculate the average rating of the restaurant */
     let rating = 0;
