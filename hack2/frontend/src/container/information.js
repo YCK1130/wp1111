@@ -49,33 +49,39 @@ const Information = ({ info, rating }) => {
                 </div>
                 <div className="singleDay">
                     <div className="day">Tue</div>
-                    {time.All || time.Tue || "Closed"}
-                    <div className="time"></div>
+                    <div className="time">
+                        {time.All || time.Tue || "Closed"}
+                    </div>
                 </div>
                 <div className="singleDay">
                     <div className="day">Wed</div>
-                    {time.All || time.Wed || "Closed"}
-                    <div className="time"></div>
+                    <div className="time">
+                        {time.All || time.Wed || "Closed"}
+                    </div>
                 </div>
                 <div className="singleDay">
                     <div className="day">Thr</div>
-                    {time.All || time.Thr || "Closed"}
-                    <div className="time"></div>
+                    <div className="time">
+                        {time.All || time.Thr || "Closed"}
+                    </div>
                 </div>
                 <div className="singleDay">
                     <div className="day">Fri</div>
-                    {time.All || time.Fri || "Closed"}
-                    <div className="time"></div>
+                    <div className="time">
+                        {time.All || time.Fri || "Closed"}
+                    </div>
                 </div>
                 <div className="singleDay">
                     <div className="day">Sat</div>
-                    {time.All || time.Sat || "Closed"}
-                    <div className="time"></div>
+                    <div className="time">
+                        {time.All || time.Sat || "Closed"}
+                    </div>
                 </div>
                 <div className="singleDay">
                     <div className="day">Sun</div>
-                    {time.All || time.Sun || "Closed"}
-                    <div className="time"></div>
+                    <div className="time">
+                        {time.All || time.Sun || "Closed"}
+                    </div>
                 </div>
             </div>
         );
