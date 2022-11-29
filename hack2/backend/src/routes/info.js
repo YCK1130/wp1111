@@ -17,20 +17,53 @@ exports.GetSearch = async (req, res) => {
     const typeFilter = req.query.typeFilter;
     const sortBy = req.query.sortBy;
     /****************************************/
-
+    // console.log(priceFilter, mealFilter, typeFilter, sortBy);
     // NOTE Hint:
     // use `db.collection.find({condition}).exec(err, data) {...}`
     // When success,
     //   do `res.status(200).send({ message: 'success', contents: ... })`
     // When fail,
     //   do `res.status(403).send({ message: 'error', contents: ... })`
-    Info.find().exec((err, data) => {
-        if (err) {
-            res.status(403).send({ message: "error", contents: err });
-        }
-        console.log(data);
-        res.status(200).send({ message: "success", contents: data });
-    });
+    const tagFilter =
+        mealFilter && typeFilter
+            ? mealFilter.concat(typeFilter)
+            : typeFilter
+            ? typeFilter
+            : mealFilter;
+    const tagFilterProcess =
+        mealFilter && typeFilter
+            ? {
+                  $in: tagFilter,
+              }
+            : typeFilter
+            ? { $in: typeFilter }
+            : mealFilter
+            ? { $in: mealFilter }
+            : {};
+    // console.log(tagFilter);
+    // console.log(tagFilterProcess, mealFilter, typeFilter);
+    Info.find(
+        priceFilter && tagFilter
+            ? {
+                  $and: [
+                      { price: { $in: priceFilter } },
+                      { tag: tagFilterProcess },
+                  ],
+              }
+            : priceFilter
+            ? { price: { $in: priceFilter } }
+            : tagFilter
+            ? { tag: tagFilterProcess }
+            : {}
+    )
+        .sort(sortBy === "price" ? { price: 1 } : { distance: 1 })
+        .exec((err, data) => {
+            if (err) {
+                res.status(403).send({ message: "error", contents: err });
+            }
+            // console.log(data);
+            res.status(200).send({ message: "success", contents: data });
+        });
 
     // TODO Part I-3-a: find the information to all restaurants
 
@@ -42,7 +75,7 @@ exports.GetInfo = async (req, res) => {
     /*******    NOTE: DO NOT MODIFY   *******/
     const id = req.query.id;
     /****************************************/
-
+    console.log(id);
     // NOTE USE THE FOLLOWING FORMAT. Send type should be
     // if success:
     // {
@@ -54,6 +87,12 @@ exports.GetInfo = async (req, res) => {
     //    message: 'error'
     //    contents: []
     // }
-
+    Info.findOne({ id: id }).exec((err, data) => {
+        if (err) {
+            res.status(403).send({ message: "error", contents: [] });
+        }
+        // console.log(data);
+        res.status(200).send({ message: "success", contents: data });
+    });
     // TODO Part III-2: find the information to the restaurant with the id that the user requests
 };
