@@ -6,42 +6,56 @@
   Copyright     [ 2022 11 ]
 ****************************************************************************/
 
-import React from 'react'
-import '../css/restaurantPage.css'
+import React from "react";
+import "../css/restaurantPage.css";
 import ReactStars from "react-rating-stars-component";
 import { useState, useEffect } from "react";
-import Stars from '../components/stars';
-import axios from 'axios'
+import Stars from "../components/stars";
+import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'http://localhost:4000/api'
-})
+    baseURL: "http://localhost:4000/api",
+});
 
 const Comment = ({ restaurantId, comments, setComments, setLoad }) => {
-    const [rating, setRating] = useState(0)
-    const [name, setName] = useState('')
-    const [content, setContent] = useState('')
+    const [rating, setRating] = useState(0);
+    const [name, setName] = useState("");
+    const [content, setContent] = useState("");
 
     const changeRating = (newRating) => {
-        setRating(newRating)
+        setRating(newRating);
     };
 
-
     const storeComment = async () => {
-        await instance.post('createComment/', {
+        await instance.post("createComment/", {
             // TODO Part III-3-b: store the comment to the DB
-        })
-    }
+            restaurantId: restaurantId,
+            rating: rating,
+            name: name,
+            content: content,
+        });
+    };
 
     const submitComment = () => {
         // TODO Part III-3-b: submit a comment and reset input fields
-    }
+        if (rating !== 0 && name !== "" && content !== "") {
+            storeComment();
+            setContent("");
+            setName("");
+            setRating(0);
+        }
+    };
     return (
-        <div className='commentContainer'>
-            <div className='inputContainer'>
-                <div className='title'>
-                    <div className='fields'>
-                        <input className='name' placeholder='Name' onChange={e => setName(e.target.value)} value={name} />
+        <div className="commentContainer">
+            <div className="inputContainer">
+                <div className="title">
+                    <div className="fields">
+                        <input
+                            className="name"
+                            placeholder="Name"
+                            onChange={(e) => setName(e.target.value)}
+                            value={name}
+                        />
                         <ReactStars
                             key={`stars_${rating}`}
                             count={5}
@@ -50,30 +64,35 @@ const Comment = ({ restaurantId, comments, setComments, setLoad }) => {
                             activeColor="#ffd700"
                         />
                     </div>
-                    <div className='submit'>
+                    <div className="submit">
                         <button onClick={submitComment}>Submit</button>
                     </div>
                 </div>
-                <textarea className='content' placeholder='Type your comment' onChange={e => setContent(e.target.value)} value={content} />
+                <textarea
+                    className="content"
+                    placeholder="Type your comment"
+                    onChange={(e) => setContent(e.target.value)}
+                    value={content}
+                />
             </div>
 
-            <div className='comments'>
-                {
-                    comments.map((comment) => (
-                        <div className='comment' key={comment.name}>
-                            <div className='title'>
-                                <div className='info'>
-                                    <p className='name'> {comment.name} </p>
-                                    <Stars rating={comment.rating} displayScore={false} />
-                                </div>
+            <div className="comments">
+                {comments.map((comment) => (
+                    <div className="comment" key={comment.name}>
+                        <div className="title">
+                            <div className="info">
+                                <p className="name"> {comment.name} </p>
+                                <Stars
+                                    rating={comment.rating}
+                                    displayScore={false}
+                                />
                             </div>
-                            <p className='content'> {comment.content}</p>
                         </div>
-                    ))
-                }
-
+                        <p className="content"> {comment.content}</p>
+                    </div>
+                ))}
             </div>
         </div>
-    )
-}
-export default Comment
+    );
+};
+export default Comment;

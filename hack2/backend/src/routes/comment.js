@@ -8,15 +8,23 @@
 // *
 // * ////////////////////////////////////////////////////////////////////////
 
-import Comment from '../models/comment'
+import Comment from "../models/comment";
 
 exports.GetCommentsByRestaurantId = async (req, res) => {
     /*******    NOTE: DO NOT MODIFY   *******/
-    const id = req.query.restaurantId
+    const id = req.query.restaurantId;
+    console.log(id);
+    Comment.find({ restaurantId: id }).exec((err, data) => {
+        if (err) {
+            res.status(403).send({ message: "error", contents: [] });
+        }
+        console.log(data);
+        res.status(200).send({ message: "success", contents: data });
+    });
     /****************************************/
     // TODO Part III-3-a: find all comments to a restaurant
 
-    // NOTE USE THE FOLLOWING FORMAT. Send type should be 
+    // NOTE USE THE FOLLOWING FORMAT. Send type should be
     // if success:
     // {
     //    message: 'success'
@@ -27,11 +35,27 @@ exports.GetCommentsByRestaurantId = async (req, res) => {
     //    message: 'error'
     //    contents: []
     // }
-}
+};
 
 exports.CreateComment = async (req, res) => {
     /*******    NOTE: DO NOT MODIFY   *******/
-    const body = req.body
+    const body = req.body;
+    const { restaurantId, rating, name, content } = body;
+    console.log(restaurantId, rating, name, content);
+
+    await new Comment({
+        restaurantId: restaurantId,
+        rating: rating,
+        name: name,
+        content: content,
+    }).save();
+    Comment.find({ restaurantId: restaurantId }).exec((err, data) => {
+        if (err) {
+            res.status(403).send({ message: "error", contents: [] });
+        }
+        console.log(data);
+        res.status(200).send({ message: "success", contents: data });
+    });
     /****************************************/
     // TODO Part III-3-b: create a new comment to a restaurant
-}
+};
