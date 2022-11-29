@@ -43,6 +43,7 @@ const Comment = ({ restaurantId, comments, setComments, setLoad }) => {
             setContent("");
             setName("");
             setRating(0);
+            setLoad(true);
         }
     };
     return (
