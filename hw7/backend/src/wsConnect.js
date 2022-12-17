@@ -237,5 +237,8 @@ export default {
                     break;
             }
         });
+        ws.once("close", () => {
+            chatBoxes[ws.box].delete(ws);
+        });
     },
 };
