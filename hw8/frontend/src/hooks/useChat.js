@@ -123,7 +123,7 @@ const ChatProvider = (props) => {
                 },
             });
             // console.log(unSubFunc);
-            const newSet = Object.assign([], unSubFunc);
+            const newSet = Object.assign({}, unSubFunc);
             newSet[makeName(me, friend)] = () => unSub();
             console.log("newSet", newSet);
             // setUnSubFunc([() => unSub()]);
