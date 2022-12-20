@@ -42,28 +42,26 @@ function Row({ item, updateItem, deleteItem }) {
         const { amount, category, date, description, name } = formData;
         console.log({
             // TODO 4 Use `updateItem` and pass the correct variables
+            id: item.id,
+            name: name,
             amount: amount,
             category: category,
             date: date,
             description: description,
-            name: name,
-            id: item.id,
         });
         updateItem({
             variables: {
                 // TODO 4 Use `updateItem` and pass the correct variables
-                amount: amount,
-                category: category,
-                date: date,
-                description: description,
-                name: name,
-                id: item.id,
-                // TODO End
-                onError: (err) => {
-                    // eslint-disable-next-line no-console
-                    console.error(err);
-                    console.log(JSON.stringify(err));
+                input: {
+                    ...formData,
+                    id: item.id,
                 },
+                // TODO End
+            },
+            onError: (err) => {
+                // eslint-disable-next-line no-console
+                console.error(err);
+                console.log(JSON.stringify(err));
             },
         });
     };
