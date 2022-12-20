@@ -6,7 +6,7 @@
     "frontend": "cd frontend && yarn start",
     "backend": "cd backend && yarn server",
     "test": "npx cypress run --spec cypress/e2e/**/*.cy.js",
-    "zip":"cd .. && rm hack3.zip && git archive -o hack3.zip HEAD:hack3"
+    "zip":"cd .. && rm -f hack3.zip && git archive -o hack3.zip HEAD:hack3"
   },
   "repository": "git@github.com:ntuee-web-programming/111-1-Web-Hackathon03.git",
   "author": "madmaxieee <76544194+madmaxieee@users.noreply.github.com>",
