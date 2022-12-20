@@ -48,13 +48,14 @@ type Mutation {
     createItem(input: CreateItemInput!): Item
     updateItem(input: UpdateItemInput!): Item
     # TODO 5.1 Define the schema for the deleteItem Mutation
-
+    deleteItem(id: ID!): ID!
     # TODO 5.1 End
 }
 
 type Subscription {
     itemCreated: Item!
     itemUpdated: Item!
+    itemDeleted: ID!
     # TODO 6.1 Define the schema for the deleteItem Subscription
 
     # TODO 6.1 End
