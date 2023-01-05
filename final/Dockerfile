@@ -1,16 +1,11 @@
-FROM node:12-alpine AS build
+FROM node:12-alpine
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
+RUN yarn install --freeze-lockfile
 
-FROM node:12-alpine
-RUN mkdir -p /app/node_modules && chown -R node:node /app
-WORKDIR /app
-COPY --chown=node:node package*.json ./
-USER node
-RUN npm install --production
-COPY --chown=node:node --from=build /app/build /app/build
-EXPOSE 8000
-ENTRYPOINT ["npm", "run", "server"]
+COPY . .
+ENV MONGO_HOST mongodb
+# ENV REDIS_HOST redisdb
+RUN yarn build
+
+CMD ["yarn", "deploy"]

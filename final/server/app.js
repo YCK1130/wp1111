@@ -5,12 +5,12 @@ const logger = require("morgan");
 const apiRouter = require("./api");
 const model = require("./database/mongo/model");
 const wsConnect = require("./wsConnect");
+const path = require("path");
 // ========================================
 
 // ========================================
 
-const port = process.env.PORT || 8000;
-const PORT = 4000;
+const PORT = process.env.PORT || 7780;
 
 if (process.env.NODE_ENV === "development") {
   console.log("NODE_ENV = development");
@@ -51,13 +51,34 @@ db.once("open", async () => {
     }
   });
   const app = express();
-  const server = http.createServer(app);
-  const wss = new ws.WebSocketServer({ server });
-
   if (process.env.NODE_ENV === "production") {
     console.log("Trust proxy is on");
     app.set("trust proxy", 1);
   }
+  app.use(logger("dev"));
+  app.use(express.static("build"));
+
+  app.use("/api", apiRouter);
+
+  // app.listen(port, () =>
+  //   console.log(`App listening at http://localhost:${port}`)
+  // );
+  // if (process.env.NODE_ENV === "production") {
+  //   const __dirname = path.resolve();
+  //   app.use(express.static(path.join(__dirname, "../", "build")));
+  //   app.get("/*", function (req, res) {
+  //     res.sendFile(path.join(__dirname, "../", "build", "index.html"));
+  //   });
+  // }
+  // if (process.env.NODE_ENV === "production") {
+  //   const __dirname = path.resolve();
+  //   app.use(express.static(path.join(__dirname, "../", "build")));
+  //   app.get("/*", function (req, res) {
+  //     res.sendFile(path.join(__dirname, "../", "build", "index.html"));
+  //   });
+  // }
+  const server = http.createServer(app);
+  const wss = new ws.WebSocketServer({ server });
 
   wss.on("connection", (ws) => {
     ws.box = ""; //記page
@@ -66,15 +87,6 @@ db.once("open", async () => {
     ws.onmessage = wsConnect.onMessage(ws); //當ws有message時，執行後面的把丟入method
     ws.onclose = wsConnect.onClose(ws);
   });
-
-  app.use(logger("dev"));
-  app.use(express.static("build"));
-
-  app.use("/api", apiRouter);
-
-  app.listen(port, () =>
-    console.log(`App listening at http://localhost:${port}`)
-  );
 
   server.listen(PORT, () => {
     console.log(`WS listening on ${PORT}`);
